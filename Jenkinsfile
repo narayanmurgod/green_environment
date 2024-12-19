@@ -3,9 +3,9 @@ pipeline {
 	
 	
 	environment {
-		PROJECT_ID = 'gke-deployment-362011'
-                CLUSTER_NAME = 'cluster-2'
-                LOCATION = 'northamerica-northeast2-a'
+		PROJECT_ID = 'cts05-murgod'
+                CLUSTER_NAME = 'blue-green'
+                LOCATION = 'us-central1'
                 CREDENTIALS_ID = 'Kubernetes'		
 	}
 	
@@ -23,7 +23,7 @@ pipeline {
 		    steps {
 			    sh 'whoami'
 			    script {
-				    myimage = docker.build("arjunmishra/app-deploy-k8s:${env.BUILD_ID}")
+				    myimage = docker.build("thenameisnani/app-deploy-k8s:${env.BUILD_ID}")
 			    }
 		    }
 	    }
@@ -32,8 +32,8 @@ pipeline {
 		    steps {
 			    script {
 				    echo "Push Docker Image"
-				    withCredentials([string(credentialsId: 'arjunmishra', variable: 'arjunmishra')]) {
-            				sh "docker login -u arjunmishra -p ${arjunmishra}"
+				    withCredentials([string(credentialsId: 'thenameisnani', variable: 'thenameisnani')]) {
+            				sh "docker login -u thenameisnani -p ${thenameisnani}"
 				    }
 				        myimage.push("${env.BUILD_ID}")
 				    
