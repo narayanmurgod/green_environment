@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: myapp-v1
-        image: thenameisnani/demo-test:tagversion
+        image: thenameisnani/app-deploy-k8s:tagversion
         ports:
         - containerPort: 8080
 ---
