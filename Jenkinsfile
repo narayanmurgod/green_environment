@@ -6,7 +6,7 @@ pipeline {
 		PROJECT_ID = 'cts05-murgod'
                 CLUSTER_NAME = 'blue-green'
                 LOCATION = 'us-central1'
-                CREDENTIALS_ID = 'Kubernetes'		
+                CREDENTIALS_ID = 'kubernetes'		
 	}
 	
     stages {
